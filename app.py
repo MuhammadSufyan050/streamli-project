@@ -4,8 +4,14 @@ import os
 import google.generativeai as genai  # Google Gemini AI import
 from io import BytesIO
 
+from dotenv import load_dotenv
+
+load_dotenv()  # Load environment variables from .env file
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+
 # Set your Google Gemini AI API key
-genai.configure(api_key="AIzaSyDCA8NH-MeG200ugbpEp7AFWcuovRTSmfk")
+# genai.configure(api_key="AIzaSyDCA8NH-MeG200ugbpEp7AFWcuovRTSmfk")
 
 st.set_page_config(page_title="Data Sweeper", layout="wide")
 st.title("🧹 Data Sweeper")
